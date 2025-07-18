@@ -5,6 +5,9 @@ const { generateDropReport } = require("../scripts/generateDrop");
 const {
   generateCommonLogisticsReport,
 } = require("../scripts/generateCommonLogistics");
+const {
+  generateRoomAllotmentReport,
+} = require("../scripts/generateRoomAllotment");
 
 const app = express();
 app.use(cors());
@@ -17,6 +20,8 @@ app.get("/generate-report", async (req, res) => {
     let result;
     if (type === "pickup") result = await generatePickupReport(program_id);
     else if (type === "drop") result = await generateDropReport(program_id);
+    else if (type === "room-allocation")
+      result = await generateRoomAllotmentReport(program_id);
     else if (type === "logistics")
       result = await generateCommonLogisticsReport(program_id);
     else return res.status(400).send("Invalid type");
