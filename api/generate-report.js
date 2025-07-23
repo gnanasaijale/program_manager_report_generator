@@ -38,6 +38,7 @@ app.get("/generate-report", async (req, res) => {
   }
 });
 
-app.listen(4000, () =>
-  console.log("🚀 Report server running on http://localhost:4000")
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () =>
+  console.log(`🚀 Report server running on http://localhost:${PORT}`)
 );
