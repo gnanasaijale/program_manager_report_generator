@@ -10,7 +10,13 @@ const {
 } = require("../scripts/generateRoomAllotment");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://admin.sohamwithin.com", // Your real frontend domain
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.get("/generate-report", async (req, res) => {
   const { type, program_id } = req.query;
