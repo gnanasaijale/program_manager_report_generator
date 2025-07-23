@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "storageUtils.js",
   "scripts": {
-    "test": "node api/generate-report.js"
+    "start": "node generate-report.js"
   },
   "keywords": [],
   "author": "",
